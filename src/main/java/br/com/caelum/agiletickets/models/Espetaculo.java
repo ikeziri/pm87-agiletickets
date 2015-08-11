@@ -2,6 +2,7 @@ package br.com.caelum.agiletickets.models;
 
 import static com.google.common.collect.Lists.newArrayList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -98,6 +99,27 @@ public class Espetaculo {
      */
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
 		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
+		System.out.println(inicio);
+		System.out.println(fim);
+		System.out.println(horario);
+		System.out.println(periodicidade);
+		int periodicidadeInt = 0;
+		List<Sessao> sessoes = new ArrayList<Sessao>();
+		if(periodicidade.name().equals("DIARIA")){
+			periodicidadeInt = 1;
+		}else{
+			periodicidadeInt = 7;
+		}
+		for( ; inicio.isBefore(fim) ; ){
+			
+			System.out.println(inicio.isBefore(inicio));
+			System.out.println(inicio);
+			Sessao sessao = new Sessao();
+			sessao.setInicio(inicio.toDateTime(LocalTime.MIDNIGHT));
+			System.out.println(sessao.getInicio());
+			inicio= inicio.plusDays(periodicidadeInt);
+		}
+		
 		return null;
 	}
 	
