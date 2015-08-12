@@ -98,11 +98,6 @@ public class Espetaculo {
      * Repare que a data da primeira sessao é sempre a data inicial.
      */
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
-		// ALUNO: Não apague esse metodo. Esse sim será usado no futuro! ;)
-		System.out.println(inicio);
-		System.out.println(fim);
-		System.out.println(horario);
-		System.out.println(periodicidade);
 		int periodicidadeInt = 0;
 		List<Sessao> sessoes = new ArrayList<Sessao>();
 		if(periodicidade.name().equals("DIARIA")){
@@ -110,17 +105,17 @@ public class Espetaculo {
 		}else{
 			periodicidadeInt = 7;
 		}
-		for( ; inicio.isBefore(fim) ; ){
+		for( ; !inicio.isAfter(fim) ; ){
 			
-			System.out.println(inicio.isBefore(inicio));
-			System.out.println(inicio);
 			Sessao sessao = new Sessao();
-			sessao.setInicio(inicio.toDateTime(LocalTime.MIDNIGHT));
-			System.out.println(sessao.getInicio());
+			sessao.setInicio(inicio.toDateTime(horario));
+			sessao.setEspetaculo(this);
+			sessoes.add(sessao);
 			inicio= inicio.plusDays(periodicidadeInt);
 		}
 		
-		return null;
+		
+		return sessoes;
 	}
 	
 	public boolean Vagas(int qtd, int min)
