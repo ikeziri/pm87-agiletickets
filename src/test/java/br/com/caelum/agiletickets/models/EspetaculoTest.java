@@ -91,11 +91,12 @@ public class EspetaculoTest {
 		LocalDate fim = new LocalDate("2015-08-14");
 		LocalTime horario = new LocalTime("10:04");
 		Periodicidade periodicidade = Periodicidade.DIARIA;
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade, 10);
 		assertEquals(1, sessoes.size());
 		assertEquals("14/08/15", sessoes.get(0).getDia());
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(0).getTotalIngressos());
 	}
 	@Test
 	public void gerar1sessaoParaEspetaculoDeUmDiaSemanal() throws Exception {
@@ -104,11 +105,12 @@ public class EspetaculoTest {
 		LocalDate fim = new LocalDate("2015-08-14");
 		LocalTime horario = new LocalTime("10:04");
 		Periodicidade periodicidade = Periodicidade.SEMANAL;
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade, 10);
 		assertEquals(1, sessoes.size());
 		assertEquals("14/08/15", sessoes.get(0).getDia());
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(0).getTotalIngressos());
 	}
 	@Test
 	public void gerar2sessoesParaEspetaculoDe2DiasDiario() throws Exception {
@@ -117,14 +119,16 @@ public class EspetaculoTest {
 		LocalDate fim = new LocalDate("2015-08-15");
 		LocalTime horario = new LocalTime("10:04");
 		Periodicidade periodicidade = Periodicidade.DIARIA;
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade, 10);
 		assertEquals(2, sessoes.size());
 		assertEquals("14/08/15", sessoes.get(0).getDia());
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(0).getTotalIngressos());
 		assertEquals("15/08/15", sessoes.get(1).getDia());
 		assertEquals("10:04", sessoes.get(1).getHora());
 		assertEquals(espetaculo, sessoes.get(1).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(1).getTotalIngressos());
 	}
 	@Test
 	public void gerar1sessaoParaEspetaculoDe2DiasSemanal() throws Exception {
@@ -133,11 +137,12 @@ public class EspetaculoTest {
 		LocalDate fim = new LocalDate("2015-08-15");
 		LocalTime horario = new LocalTime("10:04");
 		Periodicidade periodicidade = Periodicidade.SEMANAL;
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade, 10);
 		assertEquals(1, sessoes.size());
 		assertEquals("14/08/15", sessoes.get(0).getDia());
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(0).getTotalIngressos());
 	}
 	@Test
 	public void gerar2sessoesParaEspetaculoDe7DiasSemanal() throws Exception {
@@ -146,13 +151,15 @@ public class EspetaculoTest {
 		LocalDate fim = new LocalDate("2015-08-21");
 		LocalTime horario = new LocalTime("10:04");
 		Periodicidade periodicidade = Periodicidade.SEMANAL;
-		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade, 10);
 		assertEquals(2, sessoes.size());
 		assertEquals("14/08/15", sessoes.get(0).getDia());
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(0).getTotalIngressos());
 		assertEquals("21/08/15", sessoes.get(1).getDia());
 		assertEquals("10:04", sessoes.get(1).getHora());
 		assertEquals(espetaculo, sessoes.get(1).getEspetaculo());
+		assertEquals(new Integer(10), sessoes.get(1).getTotalIngressos());
 	}
 }

@@ -18,6 +18,9 @@
 			<label for="horario">Horário</label>
 			<input type="text" name="horario" id="horario" />
 			
+			<label for="horario">Total de ingressos</label>
+			<input type="text" name="totalIngressos" id="totalIngressos" />
+			
 			<label for="periodo">Periodicidade</label>
 			<select name="periodicidade" id="periodicidade">
 				<option value="DIARIA">Diária</option>

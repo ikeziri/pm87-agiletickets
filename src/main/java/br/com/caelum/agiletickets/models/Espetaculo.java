@@ -98,12 +98,13 @@ public class Espetaculo {
      * 
      * Repare que a data da primeira sessao é sempre a data inicial.
      */
-	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
+	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade, int totalIngressos) {
 		List<Sessao> sessoes = new ArrayList<Sessao>();
 		int quantidadeSessoes = Days.daysBetween(inicio, fim).getDays()/periodicidade.getValue();
 		for (int i = 0 ; i <= quantidadeSessoes; i++) {
 			Sessao sessao = new Sessao();
 			sessao.setEspetaculo(this);
+			sessao.setTotalIngressos(totalIngressos);
 			sessao.setInicio(inicio.plusDays(i * periodicidade.getValue()).toDateTime(horario));
 			sessoes.add(sessao);
 		}
