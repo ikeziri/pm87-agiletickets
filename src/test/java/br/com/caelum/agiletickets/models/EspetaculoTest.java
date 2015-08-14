@@ -139,4 +139,20 @@ public class EspetaculoTest {
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
 	}
+	@Test
+	public void gerar2sessoesParaEspetaculoDe7DiasSemanal() throws Exception {
+		Espetaculo espetaculo = new Espetaculo();
+		LocalDate inicio = new LocalDate("2015-08-14");
+		LocalDate fim = new LocalDate("2015-08-21");
+		LocalTime horario = new LocalTime("10:04");
+		Periodicidade periodicidade = Periodicidade.SEMANAL;
+		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
+		assertEquals(2, sessoes.size());
+		assertEquals("14/08/15", sessoes.get(0).getDia());
+		assertEquals("10:04", sessoes.get(0).getHora());
+		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
+		assertEquals("21/08/15", sessoes.get(1).getDia());
+		assertEquals("10:04", sessoes.get(1).getHora());
+		assertEquals(espetaculo, sessoes.get(1).getEspetaculo());
+	}
 }
