@@ -103,6 +103,7 @@ public class Espetaculo {
 		int quantidadeSessoes = Days.daysBetween(inicio, fim).getDays()/periodicidade.getValue();
 		for (int i = 0 ; i <= quantidadeSessoes; i++) {
 			Sessao sessao = new Sessao();
+			sessao.setEspetaculo(this);
 			sessao.setInicio(inicio.plusDays(i * periodicidade.getValue()).toDateTime(horario));
 			sessoes.add(sessao);
 		}
