@@ -134,7 +134,7 @@ public class EspetaculoTest {
 		LocalTime horario = new LocalTime("10:04");
 		Periodicidade periodicidade = Periodicidade.SEMANAL;
 		List<Sessao> sessoes = espetaculo.criaSessoes(inicio, fim, horario, periodicidade);
-		assertEquals(1, sessoes.size());
+		assertEquals(2, sessoes.size());
 		assertEquals("14/08/15", sessoes.get(0).getDia());
 		assertEquals("10:04", sessoes.get(0).getHora());
 		assertEquals(espetaculo, sessoes.get(0).getEspetaculo());
